@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ui.onboarding.screens.FirstScreen">
+
+    <ImageView
+        android:id="@+id/iv_illusonboardingfirst"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="55dp"
+        android:layout_marginTop="49dp"
+        android:layout_marginVertical="49dp"
+        android:alpha="1"
+        android:contentDescription="Logo App"
+        android:src="@drawable/ic_screenfirst"
+        app:layout_constraintBottom_toTopOf="@+id/header"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/botttom_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_illusonboardingfirst"
+        android:paddingHorizontal="30dp"
+        android:paddingVertical="40dp">
+        <TextView
+            android:id="@+id/tv_greeting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/poppins_bold"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            android:text="Scan dan klasifikan buah"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/tv_sub_greeting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_greeting"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/poppins_medium"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            android:text="Scan dan klasifikasikan buah Anda untuk memastikan kesegarannya dan mengetahui gradenya dengan cepat dan mudah!"
+            android:textColor="@color/white" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_next"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_sub_greeting"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            app:cornerRadius="56dp"
+            android:padding="16dp"
+            android:backgroundTint="@color/white"
+            android:text="Lanjut"
+            android:textAllCaps="false"
+            android:textColor="@color/orange_main"
+            android:textSize="18sp" />
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

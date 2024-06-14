@@ -13,5 +13,9 @@
         
         <item name="android:statusBarColor">@color/orange_main</item>
     </style>
+    <style name="Widget.App.Button" parent="Widget.MaterialComponents.Button">
+        <!-- Background color -->
+        <item name="backgroundTint">@color/orange_main</item>
+    </style>
     <style name="Theme.InFruit" parent="Base.Theme.InFruit" />
 </resources>
