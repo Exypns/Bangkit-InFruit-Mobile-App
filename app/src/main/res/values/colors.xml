@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="white">#FEFCFF</color>
+    <color name="white_secondary">#FFFEFD</color>
     <color name="dark_gray">#4A4A4A</color>
     <color name="light_gray">#A1A1A1</color>
+    <color name="soft_gray">#BFBFBF</color>
     <color name="orange_main">#FF5F00</color>
     <color name="orange_secondary">#FF7D29</color>
     <color name="orange_tertiary">#FFFAE6</color>
