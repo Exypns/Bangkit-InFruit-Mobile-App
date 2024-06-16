@@ -15,7 +15,7 @@
             app:destination="@id/onboardingFragment" />
         <action
             android:id="@+id/action_splashFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/mainActivity" />
     </fragment>
     <fragment
         android:id="@+id/onboardingFragment"
@@ -24,11 +24,15 @@
         tools:layout="@layout/fragment_onboarding" >
         <action
             android:id="@+id/action_onboardingFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/mainActivity" />
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.infruit.ui.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.infruit.MainActivity"
+        android:label="MainActivity" />
 </navigation>

@@ -12,12 +12,6 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_activity"
-        android:name="com.infruit.ui.activity.ActivityFragment"
-        android:label="fragment_activity"
-        tools:layout="@layout/fragment_activity" />
-
-    <fragment
         android:id="@+id/navigation_shop"
         android:name="com.infruit.ui.shop.ShopFragment"
         android:label="fragment_shop"

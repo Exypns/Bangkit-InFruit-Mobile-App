@@ -35,6 +35,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        mlModelBinding = true
     }
 }
 
@@ -48,6 +49,8 @@ dependencies {
     implementation(libs.androidx.navigation.fragment)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.tensorflow.lite.support)
+    implementation(libs.tensorflow.lite.metadata)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -55,4 +58,12 @@ dependencies {
     implementation("com.github.bumptech.glide:glide:4.16.0")
     implementation("com.google.android.material:material:1.12.0")
     implementation("com.github.denzcoskun:ImageSlideshow:0.1.2")
+
+//    TFLite
+    implementation("org.tensorflow:tensorflow-lite-task-vision:0.4.4")
+
+//    CameraX
+    implementation(libs.androidx.camera.camera2)
+    implementation(libs.camera.lifecycle)
+    implementation(libs.camera.view)
 }
