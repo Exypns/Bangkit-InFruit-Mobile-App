@@ -45,15 +45,6 @@ class LoginActivity : AppCompatActivity() {
         onAction()
     }
 
-//    private fun observeDataUser() {
-//        onBoardViewModel.getTokenData().observe(this) { token ->
-//            if (token != null) {
-//                startActivity(Intent(this, MainActivity::class.java))
-//                finishAffinity()
-//            }
-//        }
-//    }
-
 
     private fun onAction() {
         binding.apply {
