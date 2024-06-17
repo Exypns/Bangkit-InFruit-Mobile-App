@@ -2,6 +2,7 @@ package com.infruit.ui.onboarding.screens
 
 import android.content.Context
 import android.os.Bundle
+import android.os.Handler
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,9 +11,11 @@ import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.infruit.R
 import com.infruit.databinding.FragmentSecondScreenBinding
+import com.infruit.viewmodel.OnBoardViewModel
 
 class SecondScreen : Fragment() {
     private lateinit var binding: FragmentSecondScreenBinding
+    private lateinit var onBoardViewModel: OnBoardViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,9 +39,18 @@ class SecondScreen : Fragment() {
     }
 
     private fun finishClick() {
-        binding.btnFinish.setOnClickListener {
-            findNavController().navigate(R.id.action_onboardingFragment_to_homeFragment)
-            onBoardingFinished()
+        onBoardViewModel.getTokenData().observe(viewLifecycleOwner) { token ->
+            if (token != null) {
+                binding.btnFinish.setOnClickListener {
+                    findNavController().navigate(R.id.action_splashFragment_to_homeFragment)
+                    onBoardingFinished()
+                }
+            } else {
+                binding.btnFinish.setOnClickListener {
+                    findNavController().navigate(R.id.action_splashFragment_to_loginActivity)
+                    onBoardingFinished()
+                }
+            }
         }
     }
 

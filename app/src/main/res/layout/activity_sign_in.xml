@@ -119,7 +119,7 @@
             android:textSize="12sp" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_next"
+            android:id="@+id/btn_register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/password_hint"
@@ -136,7 +136,7 @@
             android:id="@+id/register_container"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/btn_next"
+            android:layout_below="@+id/btn_register"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="16dp">
 
@@ -149,7 +149,7 @@
                 android:textSize="14sp" />
 
             <TextView
-                android:id="@+id/tv_register_here"
+                android:id="@+id/tv_login_here"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toEndOf="@+id/tv_register"
