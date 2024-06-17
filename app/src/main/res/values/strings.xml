@@ -7,4 +7,10 @@
     <string name="success">Success</string>
     <string name="default_text">-</string>
     <string name="error">Error</string>
+    <string name="freshapples">Apel segar dapat dinikmati langsung sebagai camilan, dipotong dan ditambahkan ke salad, atau digunakan dalam berbagai resep seperti pai apel dan saus apel</string>
+    <string name="freshbanana">Pisang segar sangat cocok untuk dimakan langsung, dibuat smoothie, atau digunakan sebagai bahan utama dalam roti pisang dan pancake pisang.</string>
+    <string name="freshoranges">Jeruk segar dapat dinikmati langsung, dijadikan jus jeruk, atau ditambahkan ke salad buah untuk rasa yang segar dan manis</string>
+    <string name="rottenapples">Apel busuk sebaiknya segera dibuang atau, jika masih bisa diselamatkan, dapat digunakan sebagai kompos untuk tanaman di kebun.</string>
+    <string name="rottenbanana">Pisang busuk sering kali masih bisa digunakan dalam pembuatan roti pisang atau muffin karena teksturnya yang lembut dan manis.</string>
+    <string name="rottenoranges">Jeruk busuk sebaiknya segera dibuang untuk menghindari kontaminasi dengan buah segar lainnya, atau digunakan sebagai kompos jika kondisinya memungkinkan.</string>
 </resources>

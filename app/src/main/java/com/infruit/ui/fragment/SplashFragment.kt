@@ -3,16 +3,15 @@ package com.infruit.ui.fragment
 import android.content.Context
 import android.os.Bundle
 import android.os.Handler
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.infruit.R
-import com.infruit.databinding.FragmentOnboardingBinding
 import com.infruit.databinding.FragmentSplashBinding
 import com.infruit.viewmodel.OnBoardViewModel
 
@@ -28,6 +27,7 @@ class SplashFragment : Fragment() {
     ): View? {
         Handler().postDelayed({
             val isOnBoardingFinished = onBoardingFinished()
+
 
             onBoardViewModel.getTokenData().observe(viewLifecycleOwner) { token ->
                 val isOnBoardingFinished = onBoardingFinished() // Pastikan ini sesuai dengan logika Anda untuk memeriksa onboarding

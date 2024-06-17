@@ -73,7 +73,7 @@ class FreshAndRottenClassifierHelper(
     }
 
     companion object {
-        private const val TAG = "GradingClassifierHelper"
+        private const val TAG = "Fresh and Rotten Classifier"
     }
 
     interface ClassifierListener {
