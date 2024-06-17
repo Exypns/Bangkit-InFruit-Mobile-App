@@ -113,11 +113,10 @@ class CameraActivity : AppCompatActivity() {
     }
 
     private fun takePhoto() {
-
-
         val imageCapture = imageCapture ?: return
         val photoFile = createCustomTempFile(application)
         val outputOptions = ImageCapture.OutputFileOptions.Builder(photoFile).build()
+        val scanType = intent.getStringExtra(EXTRA_MODEL)
 
         imageCapture.takePicture(
             outputOptions,
@@ -130,7 +129,14 @@ class CameraActivity : AppCompatActivity() {
                         Toast.LENGTH_SHORT
                     ).show()
                     output.savedUri
-                    output.savedUri?.let { gradingAnalyze(it) }
+                    output.savedUri?.let {
+                        if (scanType == "Grading") {
+                            gradingAnalyze(it)
+                        }
+                        else if (scanType == "FreshAndRotten") {
+                            freshAndRottenAnalyze(it)
+                        }
+                    }
                     finish()
                 }
 
@@ -160,7 +166,8 @@ class CameraActivity : AppCompatActivity() {
                             val categoryLabel = sortedCategory.joinToString { it.label }
                             val confidenceScore = sortedCategory.joinToString { NumberFormat.getPercentInstance()
                                 .format(it.score).trim() }
-                            moveToResult(image, categoryLabel, confidenceScore)
+                            val recommendation = ""
+                            moveToResult(image, categoryLabel, confidenceScore, recommendation)
                         }
                     }
                 }
@@ -169,11 +176,36 @@ class CameraActivity : AppCompatActivity() {
         gradingClassifierHelper.classifyImage(image)
     }
 
-    private fun moveToResult(image: Uri, label: String, score: String) {
+    private fun freshAndRottenAnalyze(image: Uri) {
+        freshAndRottenClassifierHelper = FreshAndRottenClassifierHelper(
+            context = this,
+            classifierListener = object : FreshAndRottenClassifierHelper.ClassifierListener {
+                override fun onError(error: String) { showToast(error) }
+
+                override fun onResults(results: List<Classifications>?) {
+                    results?.let { it ->
+                        if (it.isNotEmpty() && it[0].categories.isNotEmpty()) {
+                            println(it)
+                            val sortedCategory = it[0].categories.sortedByDescending { it?.score }
+                            val categoryLabel = sortedCategory.joinToString { it.label }
+                            val confidenceScore = sortedCategory.joinToString { NumberFormat.getPercentInstance()
+                                .format(it.score).trim() }
+                            val recommendation = ""
+                            moveToResult(image, categoryLabel, confidenceScore, recommendation)
+                        }
+                    }
+                }
+            }
+        )
+        freshAndRottenClassifierHelper.classifyImage(image)
+    }
+
+    private fun moveToResult(image: Uri, label: String, score: String, recommendation: String) {
         val intent = Intent(this, ScanResultActivity::class.java)
         intent.putExtra(ScanResultActivity.EXTRA_IMAGE, image.toString())
         intent.putExtra(ScanResultActivity.EXTRA_LABEL, label)
         intent.putExtra(ScanResultActivity.EXTRA_SCORE, score)
+        intent.putExtra(ScanResultActivity.EXTRA_RECOMMENDATION, recommendation)
         startActivity(intent)
     }
 
