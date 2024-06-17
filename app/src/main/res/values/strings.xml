@@ -1,14 +1,10 @@
 <resources>
     <string name="app_name">InFruit</string>
-    <string name="test">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse dignissim tortor nibh, fringilla posuere purus aliquam et. Integer vestibulum mattis turpis nec molestie. Vestibulum vel nunc aliquet, eleifend mi nec, ullamcorper enim. Ut pretium justo in arcu ultricies, ac vestibulum dui aliquet. Fusce et tempor velit. Nam sodales urna non luctus interdum. Vestibulum rhoncus, eros ut scelerisque euismod, mi tellus finibus eros, ut rhoncus ante quam vitae sapien. Duis pulvinar fermentum rhoncus. Fusce dolor lacus, dictum eu gravida quis, lobortis euismod augue. Pellentesque eros ipsum, pharetra id consectetur a, pulvinar sed purus. Sed egestas gravida purus. Vivamus congue, lacus ac tincidunt lacinia, orci mauris sollicitudin libero, nec condimentum mi libero quis tellus. Morbi interdum eget sapien tincidunt sodales. Morbi nunc felis, dignissim a ipsum ac, aliquet faucibus mi. Fusce porttitor turpis dolor.
-
-Mauris tincidunt ligula viverra est porta eleifend. Nam sed eleifend ipsum. Curabitur nec mattis sem, quis aliquam sapien. Vestibulum risus leo, tempus non massa in, mattis ultrices lacus. Nunc tincidunt urna sed justo hendrerit, sed egestas dui vehicula. Nullam bibendum vitae libero id efficitur. Donec nec urna et nisl faucibus tristique a sed sapien. Donec id lacus diam. Nulla sagittis metus et placerat dictum. Vivamus dapibus, augue at iaculis volutpat, purus ante tempus massa, et lacinia felis diam non tellus. Donec vitae turpis non metus volutpat lobortis. Fusce auctor fermentum ante eget posuere.
-
-Etiam sodales elit metus, a auctor mi porta et. Cras leo arcu, venenatis at placerat sit amet, semper vel elit. Donec volutpat metus vel ornare commodo. Phasellus risus lectus, pharetra condimentum aliquet non, posuere ac mi. Praesent nec dui quis ex euismod bibendum. Etiam imperdiet lorem id turpis fermentum efficitur. Vivamus sit amet massa ac odio iaculis semper quis in magna. Pellentesque vitae elit vitae libero condimentum tempus ac a augue.
-
-Aliquam eu fermentum odio. Vestibulum non turpis finibus, ultricies justo ac, dignissim est. Maecenas eleifend risus et massa dignissim facilisis. Praesent eros dui, facilisis at lacus ac, varius sodales mi. In hac habitasse platea dictumst. Donec turpis tellus, faucibus vel placerat nec, malesuada quis urna. Pellentesque sem eros, imperdiet vitae dapibus eget, porta ut ex. Proin interdum bibendum sem, quis laoreet neque fermentum aliquam.
-
-Vivamus sit amet porttitor ipsum. Donec ultricies venenatis scelerisque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam mauris tellus, finibus vitae sollicitudin eget, varius ut quam. Proin odio augue, aliquet et iaculis quis, posuere quis augue. Mauris placerat vitae ipsum vitae ultrices. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi tristique euismod erat.</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="camera_suggestion">Untuk hasil yang lebih baik, dianjurkan untuk menletakkan buah di area yang terang</string>
+    <string name="image_classifier_failed">Image classifier failed to initialize. See error logs for details</string>
+    <string name="loading">Loading...</string>
+    <string name="success">Success</string>
+    <string name="default_text">-</string>
+    <string name="error">Error</string>
 </resources>

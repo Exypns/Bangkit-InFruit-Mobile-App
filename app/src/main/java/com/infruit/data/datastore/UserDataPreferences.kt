@@ -31,10 +31,8 @@ class UserDataPreferences private constructor(private val dataStore: DataStore<P
         }
     }
 
-    suspend fun saveUserData(userId: String, name: String, token: String) {
+    suspend fun saveUserData(token: String) {
         dataStore.edit { preferences ->
-            preferences[USER_ID_KEY] = userId
-            preferences[NAME_KEY] = name
             preferences[TOKEN_KEY] = token
         }
     }
