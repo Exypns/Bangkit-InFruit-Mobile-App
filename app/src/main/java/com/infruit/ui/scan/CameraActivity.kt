@@ -163,10 +163,16 @@ class CameraActivity : AppCompatActivity() {
                         if (it.isNotEmpty() && it[0].categories.isNotEmpty()) {
                             println(it)
                             val sortedCategory = it[0].categories.sortedByDescending { it?.score }
-                            val categoryLabel = sortedCategory.joinToString { it.label }
+                            val categoryLabel = sortedCategory.joinToString { it.label.trim() }
                             val confidenceScore = sortedCategory.joinToString { NumberFormat.getPercentInstance()
                                 .format(it.score).trim() }
-                            val recommendation = ""
+                            var recommendation = ""
+                            when (categoryLabel) {
+                                "Extra_Class" -> recommendation = getString(R.string.extra_class)
+                                "Class_I" -> recommendation = getString(R.string.class_1)
+                                "Class_II" -> recommendation = getString(R.string.class_2)
+                                else -> recommendation = "Unknown Label"
+                            }
                             moveToResult(image, categoryLabel, confidenceScore, recommendation)
                         }
                     }
@@ -187,10 +193,19 @@ class CameraActivity : AppCompatActivity() {
                         if (it.isNotEmpty() && it[0].categories.isNotEmpty()) {
                             println(it)
                             val sortedCategory = it[0].categories.sortedByDescending { it?.score }
-                            val categoryLabel = sortedCategory.joinToString { it.label }
+                            val categoryLabel = sortedCategory.joinToString { it.label.trim() }
                             val confidenceScore = sortedCategory.joinToString { NumberFormat.getPercentInstance()
                                 .format(it.score).trim() }
-                            val recommendation = ""
+                            var recommendation = ""
+                            when (categoryLabel) {
+                                "freshapples" -> recommendation = getString(R.string.freshapples)
+                                "freshbanana" -> recommendation = getString(R.string.freshbanana)
+                                "freshoranges" -> recommendation = getString(R.string.freshoranges)
+                                "rottenapples" -> recommendation = getString(R.string.rottenapples)
+                                "rottenbanana" -> recommendation = getString(R.string.rottenbanana)
+                                "rottenoranges" -> recommendation = getString(R.string.rottenoranges)
+                                else -> recommendation = "Unknown Label"
+                            }
                             moveToResult(image, categoryLabel, confidenceScore, recommendation)
                         }
                     }
