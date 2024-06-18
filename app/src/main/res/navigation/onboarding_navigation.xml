@@ -17,7 +17,7 @@
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_splashFragment_to_homeFragment"
-            app:destination="@id/homeFragment"
+            app:destination="@id/mainActivity"
             app:popUpTo="@id/splashFragment"
             app:popUpToInclusive="true" />
         <action
@@ -33,7 +33,7 @@
         tools:layout="@layout/fragment_onboarding" >
         <action
             android:id="@+id/action_onboardingFragment_to_homeFragment"
-            app:destination="@id/homeFragment"
+            app:destination="@id/mainActivity"
             app:popUpTo="@id/onboardingFragment"
             app:popUpToInclusive="true" />
         <action
@@ -52,4 +52,8 @@
         android:name="com.infruit.ui.auth.login.LoginActivity"
         android:label="activity_login"
         tools:layout="@layout/activity_login" />
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.infruit.MainActivity"
+        android:label="MainActivity" />
 </navigation>
