@@ -32,6 +32,7 @@ class SplashFragment : Fragment() {
         Handler().postDelayed({
             val isOnBoardingFinished = onBoardingFinished()
 
+
             onBoardViewModel.getTokenData().observe(viewLifecycleOwner) { token ->
                 when {
                     isOnBoardingFinished && token != null -> {

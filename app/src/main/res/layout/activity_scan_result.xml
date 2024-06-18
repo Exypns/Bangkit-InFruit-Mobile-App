@@ -28,12 +28,25 @@
         android:layout_marginTop="100dp"
         android:background="@drawable/body_background" />
 
+    <ImageView
+        android:id="@+id/imageResult"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        app:layout_constraintTop_toTopOf="@id/bodyBackground"
+        app:layout_constraintStart_toStartOf="@id/bodyBackground"
+        app:layout_constraintEnd_toEndOf="@id/bodyBackground"
+        android:background="@drawable/image_result_background"
+        android:clipToOutline="true"
+        android:layout_marginTop="20dp"
+        android:scaleType="centerCrop"
+        tools:src="@tools:sample/backgrounds/scenic" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/informationLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="@id/bodyBackground"
-        android:layout_marginTop="30dp"
+        app:layout_constraintTop_toBottomOf="@id/imageResult"
+        android:layout_marginTop="20dp"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         android:background="@drawable/information_text_background" >
@@ -97,6 +110,7 @@
             android:textColor="@color/orange_secondary" />
 
         <TextView
+            android:id="@+id/resultTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/resultTitle"
@@ -146,6 +160,7 @@
             android:textColor="@color/orange_secondary" />
 
         <TextView
+            android:id="@+id/recommendationTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/recommendationTitle"
