@@ -13,7 +13,7 @@
         android:layout_height="0dp"
         android:layout_marginHorizontal="55dp"
         android:layout_marginTop="49dp"
-        android:layout_marginVertical="49dp"
+        android:layout_marginVertical="100dp"
         android:alpha="1"
         android:contentDescription="Logo App"
         android:src="@drawable/ic_screenfirst"
@@ -33,7 +33,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iv_illusonboardingfirst"
         android:paddingHorizontal="30dp"
-        android:paddingVertical="40dp">
+        android:paddingVertical="60dp">
         <TextView
             android:id="@+id/tv_greeting"
             android:layout_width="wrap_content"
@@ -42,7 +42,7 @@
             android:fontFamily="@font/poppins_bold"
             android:textAlignment="center"
             android:textSize="24sp"
-            android:text="Scan dan klasifikan buah"
+            android:text="Deteksi kualitas buah dengan bantuan teknologi"
             android:textColor="@color/white" />
 
         <TextView
@@ -51,11 +51,11 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_greeting"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:fontFamily="@font/poppins_medium"
             android:textAlignment="center"
             android:textSize="14sp"
-            android:text="Scan dan klasifikasikan buah Anda untuk memastikan kesegarannya dan mengetahui gradenya dengan cepat dan mudah!"
+            android:text="Ketahui tingkat kesegaran dan kebusukan buah serta grade hanya dengan sebuah foto!"
             android:textColor="@color/white" />
 
         <com.google.android.material.button.MaterialButton
@@ -68,7 +68,7 @@
             app:cornerRadius="56dp"
             android:padding="16dp"
             android:backgroundTint="@color/white"
-            android:text="Lanjut"
+            android:text="Selanjutnya"
             android:textAllCaps="false"
             android:textColor="@color/orange_main"
             android:textSize="18sp" />
