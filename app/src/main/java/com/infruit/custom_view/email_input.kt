@@ -45,9 +45,6 @@ class EmailInput @JvmOverloads constructor(
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
-        val emailIcon = resources.getDrawable(R.drawable.baseline_alternate_email_24, null)
-        setCompoundDrawablesWithIntrinsicBounds(emailIcon, null, null, null)
-        setCompoundDrawablePadding(32);
         hint = "Email"
         textAlignment = View.TEXT_ALIGNMENT_VIEW_START
     }

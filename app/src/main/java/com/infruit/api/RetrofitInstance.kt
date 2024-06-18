@@ -3,6 +3,7 @@ package com.infruit.api
 import com.infruit.BuildConfig
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -17,6 +18,7 @@ object RetrofitInstance {
 
     private val client = OkHttpClient.Builder()
         .addInterceptor(authInterceptor)
+        .addInterceptor(HttpLoggingInterceptor())
         .build()
 
     fun getApiService(): ApiService {

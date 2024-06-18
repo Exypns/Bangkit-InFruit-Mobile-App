@@ -43,9 +43,6 @@ class PasswordInput @JvmOverloads constructor(
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
-        val pwdIcon = resources.getDrawable(R.drawable.baseline_lock_24, null)
-        setCompoundDrawablesWithIntrinsicBounds(pwdIcon, null, null, null)
-        setCompoundDrawablePadding(32);
         hint = "Password"
         textAlignment = View.TEXT_ALIGNMENT_VIEW_START
     }
