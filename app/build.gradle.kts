@@ -73,6 +73,11 @@ dependencies {
     implementation("com.squareup.okhttp3:logging-interceptor:4.11.0")
     implementation("com.github.denzcoskun:ImageSlideshow:0.1.2")
 
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
+    implementation("androidx.activity:activity-ktx:1.9.0")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
+
 //    TFLite
     implementation("org.tensorflow:tensorflow-lite-task-vision:0.4.4")
 
