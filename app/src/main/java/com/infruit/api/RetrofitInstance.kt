@@ -1,6 +1,6 @@
+package com.infruit.api
 
 import com.infruit.BuildConfig
-import com.infruit.api.ApiService
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit

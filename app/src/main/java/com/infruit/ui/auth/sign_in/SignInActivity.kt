@@ -30,6 +30,7 @@ class SignInActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySignInBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.hide()
 
         registerViewModel = ViewModelProvider(this)[RegisterViewModel::class.java]
         dialogLoading = showDialogLoading(this)

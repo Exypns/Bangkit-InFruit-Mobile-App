@@ -1,6 +1,6 @@
 package com.infruit.data.repository
 
-import RetrofitInstance
+import com.infruit.api.RetrofitInstance
 import com.infruit.data.TypesResponse
 import com.infruit.data.model.user.LoginRequest
 import com.infruit.data.model.user.LoginResponse
