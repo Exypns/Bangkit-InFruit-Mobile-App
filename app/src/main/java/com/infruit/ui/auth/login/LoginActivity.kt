@@ -18,6 +18,7 @@ import com.infruit.data.datastore.UserDataPreferences
 import com.infruit.data.model.user.LoginRequest
 import com.infruit.databinding.ActivityLoginBinding
 import com.infruit.factory.LoginViewModelFactory
+import com.infruit.hideSoftKeyboard
 import com.infruit.showDialogError
 import com.infruit.showDialogLoading
 import com.infruit.showDialogSuccess
@@ -36,6 +37,8 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.hide()
+
 
         val pref = UserDataPreferences.getInstance(dataStore)
         loginViewModel =
@@ -59,8 +62,7 @@ class LoginActivity : AppCompatActivity() {
                 val pass = etPassword.text.toString().trim()
 
                 if (validationInput(email, pass)) {
-                    val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
-                    imm.hideSoftInputFromWindow(binding.root.windowToken, 0)
+                    hideSoftKeyboard(this@LoginActivity, binding.root)
                     loginUser(email, pass)
                 }
             }
@@ -104,7 +106,6 @@ class LoginActivity : AppCompatActivity() {
                             finishAffinity()
                         }, 1500)
                 }
-
                 else -> {}
             }
         }
