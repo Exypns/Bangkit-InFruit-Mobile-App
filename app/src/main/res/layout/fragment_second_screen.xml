@@ -13,7 +13,7 @@
         android:layout_height="0dp"
         android:layout_marginHorizontal="55dp"
         android:layout_marginTop="49dp"
-        android:layout_marginVertical="49dp"
+        android:layout_marginVertical="100dp"
         android:alpha="1"
         android:contentDescription="Logo App"
         android:src="@drawable/amico"
@@ -33,7 +33,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iv_illusonboardingsecond"
         android:paddingHorizontal="30dp"
-        android:paddingVertical="20dp">
+        android:paddingVertical="35dp">
         <TextView
             android:id="@+id/tv_greeting"
             android:layout_width="wrap_content"
@@ -42,7 +42,7 @@
             android:fontFamily="@font/poppins_bold"
             android:textAlignment="center"
             android:textSize="24sp"
-            android:text="Jual buahmu di e-commerce kami!"
+            android:text="Eksplorasi marketplace buah lokal"
             android:textColor="@color/white" />
 
         <TextView
@@ -55,7 +55,7 @@
             android:fontFamily="@font/poppins_medium"
             android:textAlignment="center"
             android:textSize="14sp"
-            android:text="Platform kami memungkinkan Anda untuk menjual berbagai jenis buah, bahkan yang tidak mencapai grade terbaik"
+            android:text="Ketahui marketplace buah lokal dan berdayakan petani lokal"
             android:textColor="@color/white" />
 
         <com.google.android.material.button.MaterialButton
