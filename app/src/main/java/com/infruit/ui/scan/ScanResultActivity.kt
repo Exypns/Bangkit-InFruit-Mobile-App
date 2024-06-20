@@ -2,9 +2,8 @@ package com.infruit.ui.scan
 
 import android.net.Uri
 import android.os.Bundle
+import android.view.Gravity
 import androidx.appcompat.app.AppCompatActivity
-import com.bumptech.glide.load.resource.bitmap.RoundedCorners
-import com.bumptech.glide.request.RequestOptions
 import com.infruit.databinding.ActivityScanResultBinding
 
 class ScanResultActivity : AppCompatActivity() {
@@ -23,23 +22,16 @@ class ScanResultActivity : AppCompatActivity() {
         val score = intent.getStringExtra(EXTRA_SCORE)
         val recommendation = intent.getStringExtra(EXTRA_RECOMMENDATION)
 
-        val result = "$score\n\n$label"
+        val result = "$score\n$label"
 
-        val imageOption = RequestOptions().transform(RoundedCorners(10))
-//        Glide.with(binding.imageResult).load(image).apply(imageOption).into(binding.imageResult)
         binding.imageResult.setImageURI(image)
         binding.resultTextView.text = result
+
+        if (label?.contains("Class", ignoreCase = false) == true) {
+            binding.recommendationTextView.gravity = Gravity.LEFT
+        }
         binding.recommendationTextView.text = recommendation
 
-//        when (label) {
-//            "freshapples" -> binding.recommendationTextView.text = getString(R.string.freshapples)
-//            "freshbanana" -> binding.recommendationTextView.text = getString(R.string.freshbanana)
-//            "freshoranges" -> binding.recommendationTextView.text = getString(R.string.freshoranges)
-//            "rottenapples" -> binding.recommendationTextView.text = getString(R.string.rottenapples)
-//            "rottenbanana" -> binding.recommendationTextView.text = getString(R.string.rottenbanana)
-//            "rottenoranges" -> binding.recommendationTextView.text = getString(R.string.rottenoranges)
-//            else -> binding.recommendationTextView.text = "Unknown Label"
-//        }
     }
 
     companion object {

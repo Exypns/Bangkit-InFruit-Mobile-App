@@ -13,4 +13,20 @@
     <string name="rottenapples">Apel busuk sebaiknya segera dibuang atau, jika masih bisa diselamatkan, dapat digunakan sebagai kompos untuk tanaman di kebun.</string>
     <string name="rottenbanana">Pisang busuk sering kali masih bisa digunakan dalam pembuatan roti pisang atau muffin karena teksturnya yang lembut dan manis.</string>
     <string name="rottenoranges">Jeruk busuk sebaiknya segera dibuang untuk menghindari kontaminasi dengan buah segar lainnya, atau digunakan sebagai kompos jika kondisinya memungkinkan.</string>
+    <string name="result_information">Hasilnya didasarkan pada hasil probabilitas. Kemungkinan tertinggi, kemungkinan besar akan menjadi hasilnya. Untuk hasil terbaik silahkan mengacu pada panduan pengambilan gambar atau konsultasi dengan petani yang sudah tersedia pada aplikasi ini</string>
+    <string name="extra_class">Superior quality with minimal defects.\n
+                     ⦿ Pasar Ekspor: Mangga kelas ini sangat cocok untuk pasar ekspor karena kualitasnya yang sangat tinggi dan hampir tanpa cacat. Ini bisa mendatangkan harga premium.\n
+                     ⦿ Pasar Supermarket Premium: Dijual di supermarket atau toko buah premium yang melayani pelanggan yang mencari produk berkualitas tinggi.\n
+                     ⦿ Hadiah dan Paket Khusus: Digunakan sebagai hadiah atau paket khusus untuk acara-acara tertentu seperti perayaan atau festival, di mana penampilan dan kualitas sangat penting.\n
+                     ⦿ Produk Olahan Premium: Diproses menjadi produk olahan premium seperti jus mangga murni, pure mangga untuk bayi, atau selai mangga premium yang bisa dijual dengan harga lebih tinggi."</string>
+    <string name="class_1">Good quality with slight skin defects.\n
+                 ⦿ Pasar Lokal: Mangga kelas ini cocok untuk pasar lokal atau regional di mana standar kualitas tetap tinggi, tetapi beberapa cacat kecil bisa diterima oleh konsumen.\n
+                 ⦿ Penjualan di Supermarket Reguler: Dijual di supermarket reguler di mana pelanggan menginginkan kualitas yang baik namun tidak mengharapkan kesempurnaan.\n
+                 ⦿ Pengolahan Menengah: Digunakan untuk produk olahan seperti jus, smoothies, atau salad buah di mana sedikit cacat kulit tidak terlalu berpengaruh pada kualitas produk akhir.\n
+                 ⦿ Penjualan di Pasar Tradisional: Dijual di pasar tradisional dengan harga yang sedikit lebih rendah dari mangga kelas premium, tetapi tetap menarik bagi konsumen karena kualitasnya yang baik.</string>
+    <string name="class_2">Does not qualify for higher classes but meets minimum quality requirements.\n
+                  ⦿ Pengolahan Makanan: Mangga kelas ini dapat digunakan untuk berbagai produk olahan seperti selai, saus, dodol mangga, atau manisan kering di mana penampilan luar tidak menjadi faktor utama.\n
+                  ⦿ Industri Horeka (Hotel, Restoran, Katering): Dijual ke industri Horeka untuk penggunaan dalam berbagai hidangan di mana penampilan buah tidak terlalu penting dibandingkan rasa dan tekstur.\n
+                  ⦿ Penjualan di Pasar Tradisional dengan Harga Lebih Rendah: Dijual di pasar tradisional atau pasar segar dengan harga yang lebih rendah untuk konsumen yang mencari buah murah dengan kualitas yang masih layak konsumsi.\n
+                  ⦿ Program Pangan untuk Komunitas: Didonasikan atau dijual dengan harga sangat murah untuk program pangan komunitas atau bantuan sosial di mana kebutuhan nutrisi lebih diutamakan daripada penampilan.</string>
 </resources>
