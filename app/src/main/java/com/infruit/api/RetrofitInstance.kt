@@ -16,6 +16,7 @@ object RetrofitInstance {
         chain.proceed(requestHeaders)
     }
 
+
     private val client = OkHttpClient.Builder()
         .addInterceptor(authInterceptor)
         .addInterceptor(HttpLoggingInterceptor())

@@ -39,4 +39,14 @@
         app:layout_constraintEnd_toEndOf="@id/bodyBackground"
         android:background="@drawable/siwtch_camera_button" />
 
+    <ImageButton
+        android:id="@+id/galleryButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        app:layout_constraintTop_toTopOf="@id/captureButton"
+        app:layout_constraintBottom_toBottomOf="@id/captureButton"
+        app:layout_constraintStart_toStartOf="@id/bodyBackground"
+        android:background="@drawable/gallery_button" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

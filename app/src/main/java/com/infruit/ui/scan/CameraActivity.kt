@@ -2,17 +2,20 @@ package com.infruit.ui.scan
 
 import android.Manifest
 import android.app.Dialog
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.Window
 import android.widget.Button
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
@@ -20,19 +23,38 @@ import androidx.camera.core.ImageCaptureException
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.preferencesDataStore
+import androidx.lifecycle.ViewModelProvider
 import com.infruit.R
 import com.infruit.createCustomTempFile
+import com.infruit.data.TypesResponse
+import com.infruit.data.datastore.UserDataPreferences
 import com.infruit.databinding.ActivityCameraBinding
+import com.infruit.factory.HistoryViewModelFactory
 import com.infruit.helper.FreshAndRottenClassifierHelper
 import com.infruit.helper.GradingClassifierHelper
+import com.infruit.reduceFileImage
+import com.infruit.uriToFile
+import com.infruit.viewmodel.history.HistoryViewModel
+import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.RequestBody
+import okhttp3.RequestBody.Companion.toRequestBody
 import org.tensorflow.lite.task.vision.classifier.Classifications
+import java.io.File
 import java.text.NumberFormat
+import java.util.UUID
 
+    private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "user")
 class CameraActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityCameraBinding
     private lateinit var gradingClassifierHelper: GradingClassifierHelper
     private lateinit var freshAndRottenClassifierHelper: FreshAndRottenClassifierHelper
+    private lateinit var historyViewModel: HistoryViewModel
+
+    private lateinit var tokenData: String
     private var cameraSelector: CameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
     private var imageCapture: ImageCapture? = null
 
@@ -58,6 +80,10 @@ class CameraActivity : AppCompatActivity() {
         binding = ActivityCameraBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val pref = UserDataPreferences.getInstance(dataStore)
+
+        historyViewModel = ViewModelProvider(this, HistoryViewModelFactory(pref))[HistoryViewModel::class.java]
+
         if (!allPermissionGranted()) {
             requestPermissionLauncher.launch(REQUIRED_PERMISSION)
         }
@@ -71,6 +97,10 @@ class CameraActivity : AppCompatActivity() {
             startCamera()
         }
         binding.captureButton.setOnClickListener { takePhoto() }
+
+        val token = intent.getStringExtra("token")
+
+        Log.d("Token in camera", token.toString())
     }
 
     public override fun onResume() {
@@ -158,6 +188,7 @@ class CameraActivity : AppCompatActivity() {
             classifierListener = object : GradingClassifierHelper.ClassifierListener {
                 override fun onError(error: String) { showToast(error) }
 
+                @RequiresApi(Build.VERSION_CODES.Q)
                 override fun onResults(results: List<Classifications>?) {
                     results?.let { it ->
                         if (it.isNotEmpty() && it[0].categories.isNotEmpty()) {
@@ -173,6 +204,9 @@ class CameraActivity : AppCompatActivity() {
                                 "Class_II" -> recommendation = getString(R.string.class_2)
                                 else -> recommendation = "Unknown Label"
                             }
+                            val imageFile = uriToFile(image, this@CameraActivity).reduceFileImage()
+                            val id = UUID.randomUUID().toString().toRequestBody("text/plain".toMediaType())
+                            observeToken(confidenceScore, id, imageFile, categoryLabel, recommendation)
                             moveToResult(image, categoryLabel, confidenceScore, recommendation)
                         }
                     }
@@ -188,6 +222,7 @@ class CameraActivity : AppCompatActivity() {
             classifierListener = object : FreshAndRottenClassifierHelper.ClassifierListener {
                 override fun onError(error: String) { showToast(error) }
 
+                @RequiresApi(Build.VERSION_CODES.Q)
                 override fun onResults(results: List<Classifications>?) {
                     results?.let { it ->
                         if (it.isNotEmpty() && it[0].categories.isNotEmpty()) {
@@ -206,6 +241,9 @@ class CameraActivity : AppCompatActivity() {
                                 "rottenoranges" -> recommendation = getString(R.string.rottenoranges)
                                 else -> recommendation = "Unknown Label"
                             }
+                            val imageFile = uriToFile(image, this@CameraActivity).reduceFileImage()
+                            val id = UUID.randomUUID().toString().toRequestBody("text/plain".toMediaType())
+                            observeToken(confidenceScore, id, imageFile, categoryLabel, recommendation)
                             moveToResult(image, categoryLabel, confidenceScore, recommendation)
                         }
                     }
@@ -213,6 +251,44 @@ class CameraActivity : AppCompatActivity() {
             }
         )
         freshAndRottenClassifierHelper.classifyImage(image)
+    }
+
+    private fun observeToken(score: String, id: RequestBody,
+                             image: File, label: String, recommendation: String) {
+        val score = score.toString().toRequestBody("text/plain".toMediaType())
+        val label = label.toString().toRequestBody("text/plain".toMediaType())
+        val recommendation = recommendation.toString().toRequestBody("text/plain".toMediaType())
+        historyViewModel.getToken().observe(this) { token ->
+            token.let {
+                if (token != null) {
+                    tokenData = token
+                    Log.d("Token in history", token)
+                    createHistory(score, image, id, label, recommendation)
+                }
+            }
+
+        }
+    }
+
+
+    private fun createHistory(score: RequestBody, image: File,
+                              id: RequestBody, label: RequestBody, recommendation: RequestBody) {
+        historyViewModel.createHistory(tokenData, image, id, label, score, recommendation)
+        Log.d("Data History", "$tokenData, $score, $image, $recommendation, $label")
+        historyViewModel.createHistoryResponse.observe(this) { response ->
+            Log.d("Response History", response.message.toString())
+            when (response) {
+                is TypesResponse.Loading -> {
+                    Log.d("Create History Loading", response.message.toString())
+                }
+                is TypesResponse.Success -> {
+                    Log.d("Create History Success", "Success")
+                }
+                is TypesResponse.Error -> {
+                    Log.d("Create History Error", "Error")
+                }
+            }
+        }
     }
 
     private fun moveToResult(image: Uri, label: String, score: String, recommendation: String) {
@@ -244,15 +320,6 @@ class CameraActivity : AppCompatActivity() {
     }
 
     private fun hideSystemUI() {
-//        @Suppress("DEPRECATION")
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-//            window.insetsController?.hide(WindowInsets.Type.statusBars())
-//        } else {
-//            window.setFlags(
-//                WindowManager.LayoutParams.FLAG_FULLSCREEN,
-//                WindowManager.LayoutParams.FLAG_FULLSCREEN
-//            )
-//        }
         supportActionBar?.hide()
     }
 

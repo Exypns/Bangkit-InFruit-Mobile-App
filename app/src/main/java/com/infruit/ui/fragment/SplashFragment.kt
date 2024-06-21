@@ -1,17 +1,19 @@
 package com.infruit.ui.fragment
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.infruit.MainActivity
 import com.infruit.R
 import com.infruit.data.datastore.UserDataPreferences
 import com.infruit.databinding.FragmentSplashBinding
@@ -35,7 +37,10 @@ class SplashFragment : Fragment() {
             onBoardViewModel.getTokenData().observe(viewLifecycleOwner) { token ->
                 when {
                     isOnBoardingFinished && token != null -> {
-                        findNavController().navigate(R.id.action_splashFragment_to_homeFragment)
+                        val intent = Intent(activity, MainActivity::class.java)
+                        intent.putExtra("token", token)
+                        startActivity(intent)
+//                        findNavController().navigate(R.id.action_splashFragment_to_homeFragment)
                     }
                     isOnBoardingFinished && token == null -> {
                         findNavController().navigate(R.id.action_splashFragment_to_loginActivity)

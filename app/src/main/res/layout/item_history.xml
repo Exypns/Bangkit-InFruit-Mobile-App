@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_margin="5dp"
+    android:backgroundTint="@color/white"
+    app:cardCornerRadius="20dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/resultImage"
+        android:layout_width="130dp" 
+        android:layout_height="130dp"
+        android:scaleType="centerCrop"
+        android:clipToOutline="true"
+        android:layout_margin="15dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/image_result_background"
+        tools:src="@tools:sample/backgrounds/scenic" />
+    
+    <TextView
+        android:id="@+id/scanResultTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/resultImage"
+        app:layout_constraintStart_toEndOf="@id/resultImage"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="12dp"
+        android:paddingBottom="10dp"
+        android:textColor="@color/dark_gray"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:text="Hasil Scan" />
+        
+    <TextView
+        android:id="@+id/gradeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/scanResultTitle"
+        app:layout_constraintTop_toBottomOf="@id/scanResultTitle"
+        android:textColor="@color/dark_gray"
+        android:text="Grade: A" />
+
+        <TextView
+            android:id="@+id/conditionTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/scanResultTitle"
+            app:layout_constraintTop_toBottomOf="@id/gradeTextView"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/dark_gray"
+            android:text="Kondisi: Fresh" />
+
+        <TextView
+            android:id="@+id/fruitTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/scanResultTitle"
+            app:layout_constraintTop_toBottomOf="@id/conditionTextView"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/dark_gray"
+            android:text="Buah: Mangga" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

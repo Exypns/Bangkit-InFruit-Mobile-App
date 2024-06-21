@@ -85,8 +85,5 @@
             android:textSize="16sp"
             android:text="Kembali"
             android:textColor="@color/white" />
-
-
     </RelativeLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,8 +11,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
+        android:text="Shop Fragment"
         android:textColor="@color/dark_gray"
-        android:text="Shop Fragment" />
+        tools:layout_editor_absoluteX="32dp"
+        tools:layout_editor_absoluteY="74dp" />
 
     <RelativeLayout
         android:id="@+id/header"

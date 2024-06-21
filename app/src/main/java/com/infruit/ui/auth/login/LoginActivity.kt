@@ -5,7 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.view.inputmethod.InputMethodManager
+import android.util.Log
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.datastore.core.DataStore
@@ -98,6 +98,7 @@ class LoginActivity : AppCompatActivity() {
                         "Selamat anda berhasil login"
                     )
                     dialogSuccess.show()
+                    Log.d("Login Success", response.message.toString())
 
                     Handler(Looper.getMainLooper())
                         .postDelayed({

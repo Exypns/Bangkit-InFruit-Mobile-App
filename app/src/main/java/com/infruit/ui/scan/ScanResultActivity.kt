@@ -4,6 +4,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.Gravity
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
 import com.infruit.databinding.ActivityScanResultBinding
 
 class ScanResultActivity : AppCompatActivity() {
@@ -18,20 +19,19 @@ class ScanResultActivity : AppCompatActivity() {
         supportActionBar?.hide()
 
         val image = Uri.parse(intent.getStringExtra(EXTRA_IMAGE))
-        val label = intent.getStringExtra(EXTRA_LABEL)
-        val score = intent.getStringExtra(EXTRA_SCORE)
-        val recommendation = intent.getStringExtra(EXTRA_RECOMMENDATION)
+        val label = intent.getStringExtra(EXTRA_LABEL).toString()
+        val score = intent.getStringExtra(EXTRA_SCORE).toString()
+        val recommendation = intent.getStringExtra(EXTRA_RECOMMENDATION).toString()
 
         val result = "$score\n$label"
 
-        binding.imageResult.setImageURI(image)
+        Glide.with(binding.imageResult).load(image).into(binding.imageResult)
         binding.resultTextView.text = result
 
-        if (label?.contains("Class", ignoreCase = false) == true) {
+        if (label.contains("Class", ignoreCase = false) == true) {
             binding.recommendationTextView.gravity = Gravity.LEFT
         }
         binding.recommendationTextView.text = recommendation
-
     }
 
     companion object {

@@ -8,7 +8,7 @@ import com.infruit.data.model.user.RegisterRequest
 import com.infruit.data.model.user.RegisterResponse
 import com.infruit.data.repository.UserRepository
 
-class RegisterViewModel: ViewModel() {
+class RegisterViewModel(): ViewModel() {
     private val userRepository = UserRepository()
 
     private val _registerResponse = MutableLiveData<TypesResponse<RegisterResponse>>()

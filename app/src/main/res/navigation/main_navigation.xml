@@ -12,6 +12,12 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
+        android:id="@+id/navigation_history"
+        android:name="com.infruit.ui.history.HistoryFragment"
+        android:label="fragment_history"
+        tools:layout="@layout/fragment_history" />
+
+    <fragment
         android:id="@+id/navigation_shop"
         android:name="com.infruit.ui.shop.ShopFragment"
         android:label="fragment_shop"

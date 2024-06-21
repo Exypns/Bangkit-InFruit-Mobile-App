@@ -12,7 +12,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class UserRepository {
+class UserRepository() {
     private val apiService = RetrofitInstance.getApiService()
 
     fun loginUser(userData: LoginRequest, callback: (TypesResponse<LoginResponse>) -> Unit) {
